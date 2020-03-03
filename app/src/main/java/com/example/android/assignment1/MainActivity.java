@@ -122,10 +122,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void updateNotification() {
-        Bitmap androidImage = BitmapFactory.decodeResource(getResources(),R.drawable.mascot_1);
+        //Bitmap androidImage = BitmapFactory.decodeResource(getResources(),R.drawable.mascot_1);
         NotificationCompat.Builder notifyBuilder = getNotificationBuilder();
-        notifyBuilder.setStyle(new NotificationCompat.BigPictureStyle()
-                .bigPicture(androidImage)
+        notifyBuilder.setStyle(new NotificationCompat.InboxStyle()
+                .addLine("First message")
+                .addLine("Second message")
+                .addLine("Third message")
+                .setSummaryText("+3 more")
                 .setBigContentTitle("Notification Updated!"));
         mNotifyManager.notify(NOTIFICATION_ID, notifyBuilder.build());
         setNotificationButtonState(false, false, true);
